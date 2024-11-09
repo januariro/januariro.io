@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>test machine</title>
+    <style>
+        .input {
+            margin-left: 20px;
+            width: 120px;
+        }
+        .all {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="all"> 
+       <h2>点数を百点満点で計算する</h2>
+    </div>
+    <div class="all">
+        <input type="number" id="score" class="input" placeholder="点数を入力">
+        <input type="number" id="max" class="input" placeholder="満点を入力">
+        <button class="all" onclick="answer()">出力</button>
+        <p id="answer" class="all">結果：</p>
+    </div>
+    <script>
+        function answer() {
+            const score = parseFloat(document.getElementById("score").value);
+            const max = parseFloat(document.getElementById("max").value);
+
+            if (!isNaN(score) && !isNaN(max) && max > 0) {
+                const result = (score * 100) / max;
+                document.getElementById("answer").innerText = "結果：" + result.toFixed(2);
+            } else {
+                document.getElementById("answer").innerText = "正しい数値を入力してください。";
+            }
+        }
+    </script>
+</body>
+</html>
